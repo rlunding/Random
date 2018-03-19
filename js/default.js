@@ -36,7 +36,8 @@ function do_something() {
         stats_picked_elements[i][picked_rnd_value] += 1;
     }
     picked_txt = picked_txt.substring(0, picked_txt.length-2) + ']';
-    result_txt_div.html('Valgt: ' + picked_txt + "<br>" +'<b>Resultat:</b><br>' + result_txt);
+    //result_txt_div.html('Valgt: ' + picked_txt + "<br>" +'<b>Resultat:</b><br>' + result_txt);
+    result_txt_div.html(result_txt);
 
     var statistic_txt = '<table class="table"><tr>' +
         '<th rowspan="'+n_elements+1+'"><span class="vertical-center">Valg</span></th>' +
