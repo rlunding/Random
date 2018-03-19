@@ -1,8 +1,3 @@
-<!--
-https://www.html5rocks.com/en/tutorials/file/dndfiles/
-https://softwareengineering.stackexchange.com/questions/150616/return-random-list-item-by-its-weight
-https://stackoverflow.com/questions/29703566/javascript-format-number-of-decimal-places-in-float
- -->
 <!doctype html>
 <html lang="da">
 <head>
@@ -12,7 +7,7 @@ https://stackoverflow.com/questions/29703566/javascript-format-number-of-decimal
     <meta name="author" content="Rasmus Lunding Henriksen">
     <link rel="icon" href="img/favicon/favicon.ico">
 
-    <title>Noget tilfældigt halløj!</title>
+    <title>Visse vasse våse vers</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
@@ -29,21 +24,7 @@ https://stackoverflow.com/questions/29703566/javascript-format-number-of-decimal
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="smoothscroll navbar-brand" href="#header-section">Tilfældigt halløj!</a>
-
-        <!--
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="smoothscroll nav-link" href="#dice-section">Terninger</a>
-                </li>
-                <li class="nav-item">
-                    <a class="smoothscroll nav-link" href="#cards-section">Kort</a>
-                </li>
-            </ul>
-        </div>
-        -->
+        <a class="smoothscroll navbar-brand" href="#header-section">Visse vasse våse vers</a>
     </div>
 </nav>
 
@@ -51,100 +32,26 @@ https://stackoverflow.com/questions/29703566/javascript-format-number-of-decimal
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Tilfældigt halløj!</h1>
                 <p>Leg med tilfældighedsgeneratorer. Få computeren til at lave en tilfældig historie til dig.</p>
-                <!--<h2>Indlæst en JSON fil</h2>
-                <p>Indlæs en JSON fil der specificerer udfaldrummet.</p>-->
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <!--
-            <div class="col-md-6">
-                <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
-                    <div class="form-group">
-                        <input type='file' id='fileinput'>
-                    </div>
-                    <div class="form-group">
-                        <input type='button' id='btnLoad' value='Indlæs' onclick='loadFile();'>
-                    </div>
-                </form>
-                <p>Nuværende valgt fil: <b><span id="current-file">Ingen</span></b></p>
-            </div>-->
             <div class="col-md-6 text-center">
                 <form id="animationForm">
-                    <div class="form-group">
-                        <label for="n_iterations">Iterationer: </label>
-                        <input type="number" id="n_iterations" value="100">
-                    </div>
-                    <div class="form-group">
-                        <label for="speed">Hastighed: </label>
-                        <input type="range" id="speed" min="0" max="1" step="0.1">
-                    </div>
-                    <input type='button' id='btnStartRandomStuff' value='Start' onclick='pickRandomElements();'>
-                    <input type='button' id='btnStopRandomStuff' value='Stop' onclick='stopPickingRandomElements();'>
+                    <input type="hidden" id="n_iterations" value="1">
+                    <input type="hidden" value="0.1">
+                    <input type='button' id='btnStartRandomStuff' value='Lav historie' onclick='pickRandomElements();'>
                 </form>
             </div>
-            <div class="col-md-6 text-center">
-                <div id="input-elements">
-                </div>
-            </div>
-        </div>
 
-        <hr>
-
-        <div class="row">
             <div class="col-md-6 text-center">
-                <div id="iteration_count"></div>
                 <div id="result_text"></div>
             </div>
-            <div class="col-md-6 text-center">
-                <div id="statistic_text"></div>
-            </div>
         </div>
-
     </div>
 </header>
-
-<!--
-<section id="dice-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>Dice!</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="cards-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>Cards!</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>Made by ...</p>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <p>&copy; 2017-2018</p>
-            </div>
-        </div>
-    </div>
-</footer>
--->
 
 
 <!-- Bootstrap core JavaScript
