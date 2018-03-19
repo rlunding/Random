@@ -1,0 +1,88 @@
+<!--
+https://www.html5rocks.com/en/tutorials/file/dndfiles/
+https://softwareengineering.stackexchange.com/questions/150616/return-random-list-item-by-its-weight
+https://stackoverflow.com/questions/29703566/javascript-format-number-of-decimal-places-in-float
+ -->
+<!doctype html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Rasmus Lunding Henriksen">
+    <link rel="icon" href="img/favicon/favicon.ico">
+
+    <title>Visse vasse våse vers | Iterationer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation" id="nav-wrap">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="smoothscroll navbar-brand" href="#header-section">Visse vasse våse vers</a>
+
+    </div>
+</nav>
+
+<header id="header-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Leg med tilfældighedsgeneratorer. Få computeren til at lave en tilfældig historie til dig.</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <form id="animationForm">
+                    <div class="form-group">
+                        <label for="n_iterations">Iterationer: </label>
+                        <input type="number" id="n_iterations" value="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="speed">Hastighed: </label>
+                        <input type="range" id="speed" min="0" max="1" step="0.1">
+                    </div>
+                    <input type='button' id='btnStartRandomStuff' value='Start' onclick='pickRandomElements();'>
+                    <input type='button' id='btnStopRandomStuff' value='Stop' onclick='stopPickingRandomElements();'>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div id="iteration_count"></div>
+                <div id="result_text"></div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div id="statistic_text"></div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/vendor/jquery-3.2.1.min.js"></script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/jquery.waypoints.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/default.js"></script>
+</body>
+</html>
