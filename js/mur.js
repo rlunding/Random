@@ -29,7 +29,10 @@ function bygmur() {
         result_txt += '</div>';
     }
     result_wall_div.html(result_txt);
-    document.getElementById("antal").innerHTML =  "Antal: [" + count[0] + ", " + count[1] + ", " + count[2] + "]";
+    document.getElementById("antal").innerHTML =  'Muren er bygget af: '
+        + count[0] + '<img class="small-brick" src="img/brick1.png"> '
+        + count[1] + '<img class="small-brick" src="img/brick2.png"> '
+        + count[2] + '<img class="small-brick" src="img/brick3.png">';
 }
 
 function onPropInput() {
@@ -51,3 +54,8 @@ function onPropInput() {
     }
     $('#btnBuildWalls').prop("disabled", errors);
 }
+
+
+$( document ).ready(function() {
+    bygmur();
+});

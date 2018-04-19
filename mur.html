@@ -23,6 +23,11 @@
         .col-1 {
             padding: 0;
         }
+
+        .small-brick {
+            height: 30px;
+            width: auto;
+        }
     </style>
 </head>
 
@@ -50,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>Leg med tilfældighedsgeneratorer. Få computeren til at lave en tilfældig mur til dig.</p>
+                <p>Få computeren til at skrive historier, <b>bygge mure</b> eller lave skrabbelodder.</p>
                 <hr>
             </div>
         </div>
@@ -63,18 +68,18 @@
             <div class="col-md-12 text-center">
                 <form id="animationForm">
                     <div class="form-group">
-                        <label for="prop_brick_1">Sandsynlighed for sten 1: </label>
+                        <label for="prop_brick_1">Sandsynlighed for mursten 1 <img class="small-brick" src="img/brick1.png">: </label>
                         <input id="prop_brick_1" type="number" value="0.33" oninput="onPropInput()">
                     </div>
                     <div class="form-group">
-                        <label for="prop_brick_2">Sandsynlighed for sten 2: </label>
+                        <label for="prop_brick_2">Sandsynlighed for mursten 2 <img class="small-brick" src="img/brick2.png">: </label>
                         <input id="prop_brick_2" type="number" value="0.33" oninput="onPropInput()">
                     </div>
                     <div class="form-group">
-                        <label for="prop_brick_3">Sandsynlighed for sten 3: </label>
+                        <label for="prop_brick_3">Sandsynlighed for mursten 3 <img class="small-brick" src="img/brick3.png">: </label>
                         <input id="prop_brick_3" type="number" value="0.34" oninput="onPropInput()">
                     </div>
-                    <input class="btn btn-primary" type='button' id='btnBuildWalls' value='Lav mur' onclick='bygmur();'>
+                    <input class="btn btn-primary" type='button' id='btnBuildWalls' value='Byg en mur' onclick='bygmur();'>
                 </form>
                 <p id="errors"></p>
             </div>
