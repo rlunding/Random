@@ -13,8 +13,12 @@ function lavSkrabelod() {
             img.src =  "img/smiley.jpg";
             antal = antal + 1;
         } else {
-            img.src =  "img/white.png";
+            img.src =  "img/white.jpg";
         }
     }
     document.getElementById("antal").innerHTML =  "Antal "+antal;
 }
+
+$( document ).ready(function() {
+    lavSkrabelod();
+});
