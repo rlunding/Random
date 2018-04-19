@@ -28,14 +28,17 @@
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="index.html">Oversigt</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="historie_iterationer.html">Iterationer</a>
+                    <a class="nav-link" href="historie.html">Lav en</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="historie_egen_fil.html">Egen historie</a>
+                    <a class="nav-link" href="historie_iterationer.html">Lav flere</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="historie_egen_fil.html">Lav din egen</a>
                 </li>
             </ul>
         </div>
@@ -46,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>Leg med tilfældighedsgeneratorer. Få computeren til at lave en tilfældig historie til dig.</p>
+                <p>Få computeren til at <b>skrive historier</b>, bygge mure eller lave skrabbelodder.</p>
                 <hr>
             </div>
         </div>
@@ -79,5 +82,10 @@
 <script src="js/vendor/jquery.waypoints.min.js"></script>
 <script src="js/index.js"></script>
 <script src="js/default.js"></script>
+<script>
+    $( document ).ready(function() {
+        setTimeout(pickRandomElements(), 1000);
+    });
+</script>
 </body>
 </html>

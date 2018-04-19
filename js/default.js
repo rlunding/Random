@@ -39,14 +39,16 @@ function do_something() {
     //result_txt_div.html('Valgt: ' + picked_txt + "<br>" +'<b>Resultat:</b><br>' + result_txt);
     result_txt_div.html(result_txt);
 
-    var statistic_txt = '<table class="table"><tr>' +
-        '<th rowspan="'+n_elements+1+'"><span class="vertical-center">Valg</span></th>' +
-        '<th colspan="'+m_elements_max+'">Mulighed</th>' +
-        '</tr>';
-    for (var i = 0; i < stats_picked_elements.length; i++) {
-        statistic_txt += '<tr>';
+    var statistic_txt = '<table class="table"<tr>'
+        + '<th colspan="'+(m_elements_max+1)+'"><span class="vertical-center">Antal gange en given linje er valgt</span></th>'
+        + '</tr>';
+    for (i = 0; i < stats_picked_elements.length; i++) {
+        statistic_txt += '<tr><td>Line '+ (i+1) +'</td>';
         for (var j = 0; j < stats_picked_elements[i].length; j++) {
             statistic_txt += '<td>' + stats_picked_elements[i][j] + '</td>';
+        }
+        for (j = 0; j < m_elements_max - stats_picked_elements[i].length; j++) {
+            statistic_txt += '<td>-</td>';
         }
         statistic_txt += '<tr>';
     }
@@ -60,7 +62,7 @@ function do_something() {
         running = false;
         disableStartButton(running);
     }
-    iteration_count.html('Iteration: ' + counter);
+    iteration_count.html('Historie: ' + counter);
 }
 
 function stopPickingRandomElements() {
@@ -84,37 +86,94 @@ function resetStatsArray() {
     }
 }
 
+function isArray(what) {
+    return Object.prototype.toString.call(what) === '[object Array]';
+}
+
+function loadFile() {
+    if (typeof window.FileReader !== 'function') {
+        alert("The file API isn't supported on this browser yet.");
+        return;
+    }
+
+    input = document.getElementById('fileinput');
+    if (!input) {
+        alert("Um, couldn't find the fileinput element.");
+    }
+    else if (!input.files) {
+        alert("This browser doesn't seem to support the `files` property of file inputs.");
+    }
+    else if (!input.files[0]) {
+        alert("Please select a file before clicking 'Load'");
+    }
+    else {
+        file = input.files[0];
+        fr = new FileReader();
+        fr.onload = receivedText;
+        fr.readAsText(file);
+    }
+
+    function receivedText(e) {
+        lines = e.target.result;
+
+        try {
+            var input_json = JSON.parse(lines);
+        } catch (e) {
+            alert('Det er ikke korrekt JSON!');
+            return;
+        }
+
+        if (!input_json.hasOwnProperty('udfaldsrum')) {
+            alert('Du skal definere et udfaldsrum');
+            return;
+        }
+        if (!isArray(input_json['udfaldsrum'])) {
+            alert('Udfaldsrummet skal være en liste');
+            return;
+        }
+        for (var i = 0; i < input_json['udfaldsrum'].length; i++) {
+            if (!isArray(input_json['udfaldsrum'][i])) {
+                alert('Hver mulighed i udfaldsrummet skal være en liste');
+                return;
+            }
+        }
+        alert('Super duper!');
+        parseJson(input_json);
+    }
+}
+
+function parseJson(input_json) {
+    elements = input_json['udfaldsrum'];
+    n_elements = input_json['udfaldsrum'].length;
+    m_elements = [];
+
+    input_json['udfaldsrum'].forEach(function (value) {
+        m_elements.push(value.length);
+    });
+    m_elements_max = m_elements.reduce(function(a, b) {
+        return Math.max(a, b);
+    });
+
+    var input_elements = $('#input-elements');
+    var input_elements_text = '<p>';
+    for (var i = 0; i < n_elements; i++) {
+        input_elements_text += 'Valg ' + (i + 1) + ': ' + m_elements[i] + ' muligheder<br>';
+    }
+    input_elements_text += '</br>';
+    console.log(input_elements_text);
+    input_elements.html(input_elements_text);
+
+    resetStatsArray();
+
+    running = false;
+    disableStartButton(running);
+}
+
 
 $( document ).ready(function() {
-    var history_json = $.getJSON("bog.json", function () {
+    $.getJSON("bog.json", function () {
         console.log("Success");
     }).done(function (data) {
-        var input_json = data;
-
-        elements = input_json['udfaldsrum'];
-        n_elements = input_json['udfaldsrum'].length;
-        m_elements = [];
-
-        input_json['udfaldsrum'].forEach(function (value) {
-            m_elements.push(value.length);
-        });
-        m_elements_max = m_elements.reduce(function(a, b) {
-            return Math.max(a, b);
-        });
-
-        var input_elements = $('#input-elements');
-        var input_elements_text = '<p>';
-        for (var i = 0; i < n_elements; i++) {
-            input_elements_text += 'Valg ' + (i + 1) + ': ' + m_elements[i] + ' muligheder<br>';
-        }
-        input_elements_text += '</br>';
-        console.log(input_elements_text);
-        input_elements.html(input_elements_text);
-
-        resetStatsArray();
-
-        running = false;
-        disableStartButton(running);
+        parseJson(data);
     });
-    
 });
