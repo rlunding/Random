@@ -116,6 +116,8 @@ var myBarchart = new Barchart({
     }
 );
 
+var prop = 0.5;
+
 function lavSkrabelod() {
     var antal = 0;
     var elements = [
@@ -126,7 +128,7 @@ function lavSkrabelod() {
 
     for (var i = 0; i < elements.length; i++) {
         var img = document.getElementById(elements[i]);
-        if (Math.random() < 0.5) {
+        if (Math.random() < prop) {
             img.src =  "img/smiley.jpg";
             antal = antal + 1;
         } else {
@@ -142,6 +144,12 @@ function lavSkrabelod() {
     myBarchart.draw();
 }
 
+function showVal(val) {
+    document.getElementById("værdi").innerHTML = val;
+    prop = val;
+}
+
 $( document ).ready(function() {
     lavSkrabelod();
+    $("#prop").val("0.5").change();
 });

@@ -66,11 +66,20 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-6 text-center">
                 <button class="btn btn-primary" type="button" onclick="lavSkrabelod()">Lav et skrabelod</button>
-                <hr>
+
+            </div>
+            <div class="col-md-6">
+                <p>
+                    Sandsynligheden for at vælge en smiley i et felt: <b><span id="værdi"></span></b>
+                </p>
+                <p>
+                    (0) <input type="range" id="prop" min="0" max="1" step="0.01" onchange="showVal(this.value)" oninput="showVal(this.value)"> (1)
+                </p>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="row">
@@ -112,6 +121,19 @@
                 <canvas id="myCanvas" style="background: white;"></canvas>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <p>
+                    Firmaet EP Banko tilbyder f.eks. 1000 færdigtrykte såkaldte <a href="http://skrabelodder.epbanko.dk/EP-Skrabelodder/Sports-Skrab.504.aspx" target="_blank">sports skrab</a>.
+                    Med 9 skrabefelter som her med op til 9 smileys. Hvordan mon EP Banko vælger smiley positionerne på de enkelte lodder?
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+
     </div>
 </header>
 
