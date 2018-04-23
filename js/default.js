@@ -43,7 +43,7 @@ function do_something() {
         + '<th colspan="'+(m_elements_max+1)+'"><span class="vertical-center">Antal gange en given linje er valgt</span></th>'
         + '</tr>';
     for (i = 0; i < stats_picked_elements.length; i++) {
-        statistic_txt += '<tr><td>Line '+ (i+1) +'</td>';
+        statistic_txt += '<tr><td>Linje '+ (i+1) +'</td>';
         for (var j = 0; j < stats_picked_elements[i].length; j++) {
             statistic_txt += '<td>' + stats_picked_elements[i][j] + '</td>';
         }
@@ -137,8 +137,9 @@ function loadFile() {
                 return;
             }
         }
-        alert('Super duper!');
+        alert('OK!');
         parseJson(input_json);
+        $('#fileinput').val("");
     }
 }
 
@@ -157,7 +158,7 @@ function parseJson(input_json) {
     var input_elements = $('#input-elements');
     var input_elements_text = '<p>';
     for (var i = 0; i < n_elements; i++) {
-        input_elements_text += 'Valg ' + (i + 1) + ': ' + m_elements[i] + ' muligheder<br>';
+        input_elements_text += 'Linje ' + (i + 1) + ': ' + m_elements[i] + ' muligheder<br>';
     }
     input_elements_text += '</br>';
     console.log(input_elements_text);
