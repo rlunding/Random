@@ -29,10 +29,10 @@ function bygmur() {
         result_txt += '</div>';
     }
     result_wall_div.html(result_txt);
-    document.getElementById("antal").innerHTML =  'Muren er bygget af: '
-        + count[0] + '<img class="small-brick" src="img/brick1.png"> '
-        + count[1] + '<img class="small-brick" src="img/brick2.png"> '
-        + count[2] + '<img class="small-brick" src="img/brick3.png">';
+    document.getElementById("antal").innerHTML =  'Muren er bygget af: &nbsp;&nbsp;'
+        + count[0] + ' <img class="small-brick" src="img/brick1.png">&nbsp;&nbsp; '
+        + count[1] + ' <img class="small-brick" src="img/brick2.png">&nbsp;&nbsp; '
+        + count[2] + ' <img class="small-brick" src="img/brick3.png">';
 }
 
 function onPropInput() {
