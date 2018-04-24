@@ -116,6 +116,12 @@ var myBarchart = new Barchart({
     }
 );
 
+function redrawBarChart() {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    ctx.save();
+    myBarchart.draw();
+}
+
 var prop = 0.5;
 
 function lavSkrabelod() {
@@ -138,18 +144,19 @@ function lavSkrabelod() {
     document.getElementById("antal").innerHTML =  "Antal "+antal;
     mySmileys[antal] += 1;
 
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    ctx.save();
-
-    myBarchart.draw();
+    redrawBarChart();
 }
 
 function showVal(val) {
     document.getElementById("værdi").innerHTML = val;
     prop = val;
+    for (var key in mySmileys) {
+        mySmileys[key] = 0;
+    }
+    redrawBarChart();
 }
 
 $( document ).ready(function() {
-    lavSkrabelod();
     $("#prop").val("0.5").change();
+    lavSkrabelod();
 });
